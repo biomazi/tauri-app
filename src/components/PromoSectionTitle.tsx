@@ -1,11 +1,51 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import CLSImage from "./CLSImage";
 import imgSrc from "../assets/invenda_logo.png";
 import LanguageSelect from "./LanguageSelect";
+import {
+  checkUpdate,
+  installUpdate,
+  onUpdaterEvent,
+} from "@tauri-apps/api/updater";
+import { relaunch } from "@tauri-apps/api/process";
+import { emit } from "@tauri-apps/api/event";
 
 const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
-  const handleClick = () => {};
+  const handleClick2 = async () => {
+    await emit("tauri://update");
+  };
+  const handleClick = async () => {
+    try {
+      const { shouldUpdate, manifest } = await checkUpdate();
+
+      if (shouldUpdate) {
+        // You could show a dialog asking the user if they want to install the update here.
+        // console.log(
+        //   `Installing update ${manifest?.version}, ${manifest?.date}, ${manifest?.body}`
+        // );
+        // Install the update. This will also restart the app on Windows!
+        await installUpdate();
+        // On macOS and Linux you will need to restart the app manually.
+        // You could use this step to display another confirmation dialog.
+        await relaunch();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    const unlisten = onUpdaterEvent(({ error, status }) => {
+      // This will log all updater events, including status updates and errors.
+      console.log("Updater event", error, status);
+    });
+
+    return () => {
+      unlisten.then((u) => u());
+    };
+  }, []);
+
   return (
     <Box
       sx={{
@@ -27,7 +67,11 @@ const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
         <Button variant="contained" onClick={handleClick}>
           Check for Update
         </Button>
-        <Typography>Installing update</Typography>
+        <Typography>Installing update 1</Typography>
+        <Button variant="contained" onClick={handleClick2}>
+          Check for Update 2
+        </Button>
+        <Typography>Installing update 2</Typography>
         {/* <Divider
           sx={{
             width: "80px",
