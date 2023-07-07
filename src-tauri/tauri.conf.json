@@ -1,0 +1,62 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "sales-20-tauri-vite",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "app": {
+        "all": true,
+        "show": true,
+        "hide": true
+      },
+      "os": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.sales.dev",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://releases.myapp.com/{{target}}/{{arch}}/{{current_version}}"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0RUNDNTc1QzJDMUMwNUQKUldSZHdNSENkY1hzcEJqZkJQRWVzcjVTL2xNbmd6MHBuNGR3RGdIbHdPRzU2Q0xSdzZTdkRVREYK"
+    },
+    "windows": [
+      {
+        "fullscreen": true,
+        "resizable": false,
+        "title": "sales-20-tauri-vite",
+        "width": 1080,
+        "height": 1920
+      }
+    ]
+  }
+}
