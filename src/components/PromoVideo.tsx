@@ -12,7 +12,7 @@ const PromoVideo = () => {
       height="100%"
       playing={isActiveMode}
       loop={true}
-      // muted={true}
+      muted={true}
     />
   );
 };
