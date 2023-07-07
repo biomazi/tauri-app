@@ -44,7 +44,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://releases.myapp.com/{{target}}/{{arch}}/{{current_version}}"
+        "https://gist.github.com/biomazi/e318b453fd50793d0cd2259c9a2f8007"
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0RUNDNTc1QzJDMUMwNUQKUldSZHdNSENkY1hzcEJqZkJQRWVzcjVTL2xNbmd6MHBuNGR3RGdIbHdPRzU2Q0xSdzZTdkRVREYK"
