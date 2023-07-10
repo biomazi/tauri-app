@@ -9,7 +9,7 @@ import {
   onUpdaterEvent,
 } from "@tauri-apps/api/updater";
 import { relaunch } from "@tauri-apps/api/process";
-import { emit } from "@tauri-apps/api/event";
+import { emit, listen } from "@tauri-apps/api/event";
 
 const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
   const handleClick2 = async () => {
@@ -46,6 +46,28 @@ const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const unlisten = listen("tauri://update-status", (event) => {
+      // This will log all updater events, including status updates and errors.
+      console.log("event status", event);
+    });
+
+    return () => {
+      unlisten.then((u) => u());
+    };
+  }, []);
+
+  useEffect(() => {
+    const unlisten = listen("tauri://update", (event) => {
+      // This will log all updater events, including status updates and errors.
+      console.log("check event", event);
+    });
+
+    return () => {
+      unlisten.then((u) => u());
+    };
+  }, []);
+
   return (
     <Box
       sx={{
@@ -67,11 +89,11 @@ const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
         <Button variant="contained" onClick={handleClick}>
           Check for Update
         </Button>
-        <Typography>testing now 1</Typography>
+        <Typography>testing now 1.1.0 =={">"} 1.1.1</Typography>
         <Button variant="contained" onClick={handleClick2}>
           Check for Update 2
         </Button>
-        <Typography>testing now 1</Typography>
+        <Typography>testing now 1.1.0 =={">"} 1.1.1</Typography>
         {/* <Divider
           sx={{
             width: "80px",
