@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "sales-20-tauri-vite",
-    "version": "1.0.0"
+    "version": "1.0.2"
   },
   "tauri": {
     "allowlist": {
@@ -50,7 +50,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://gist.github.com/biomazi/e318b453fd50793d0cd2259c9a2f8007"
+        "https://gist.githubusercontent.com/biomazi/e318b453fd50793d0cd2259c9a2f8007/raw/c893cad46caf242f58cc4c75e739a12d3224ee41/tauri-update.json"
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0RUNDNTc1QzJDMUMwNUQKUldSZHdNSENkY1hzcEJqZkJQRWVzcjVTL2xNbmd6MHBuNGR3RGdIbHdPRzU2Q0xSdzZTdkRVREYK"
