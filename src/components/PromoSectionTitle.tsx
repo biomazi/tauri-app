@@ -67,11 +67,11 @@ const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
         <Button variant="contained" onClick={handleClick}>
           Check for Update
         </Button>
-        <Typography>Installing update 1</Typography>
+        <Typography>testing now 1</Typography>
         <Button variant="contained" onClick={handleClick2}>
           Check for Update 2
         </Button>
-        <Typography>Installing update 2</Typography>
+        <Typography>testing now 1</Typography>
         {/* <Divider
           sx={{
             width: "80px",
