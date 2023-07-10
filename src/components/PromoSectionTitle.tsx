@@ -50,14 +50,6 @@ const PromoSectionTitle: FC<{ title: string }> = ({ title }) => {
         </Typography>
       </Box>
       <Box display="flex" alignItems="center">
-        {/* <Button variant="contained" onClick={handleClick}>
-          Check for Update
-        </Button>
-        <Typography>testing now 1</Typography>
-        <Button variant="contained" onClick={handleUpdateEvent}>
-          Check for Update 2
-        </Button>
-        <Typography>testing now 1</Typography> */}
         <Divider
           sx={{
             width: "80px",
