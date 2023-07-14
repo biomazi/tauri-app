@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/tauri";
-import { getName, getTauriVersion } from "@tauri-apps/api/app";
+import { getName, getTauriVersion, getVersion } from "@tauri-apps/api/app";
 import { useEffect } from "react";
 // import { arch, platform } from "os";
 
@@ -13,6 +13,7 @@ const getResults = async () => {
     invoke<{ message: string; other_val: number }>("greet", { number: 42 }),
     getName(),
     getTauriVersion(),
+    getVersion(),
   ]);
 };
 
@@ -30,6 +31,7 @@ const Tauri = () => {
           number: r[0].other_val,
           appName: r[1],
           tauriVersion: r[2],
+          appVersion: r[3],
         });
       });
     }
