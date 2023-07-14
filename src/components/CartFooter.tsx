@@ -8,7 +8,7 @@ import {
   onUpdaterEvent,
 } from "@tauri-apps/api/updater";
 import { relaunch } from "@tauri-apps/api/process";
-import { emit } from "@tauri-apps/api/event";
+import { emit, listen } from "@tauri-apps/api/event";
 import { useSnackbar } from "notistack";
 
 const CartFooter = () => {
@@ -43,6 +43,28 @@ const CartFooter = () => {
       enqueueSnackbar("Updater event success", { variant: "success" });
       // This will log all updater events, including status updates and errors.
       console.log("Updater event", error, status);
+    });
+
+    return () => {
+      unlisten.then((u) => u());
+    };
+  }, []);
+
+  useEffect(() => {
+    const unlisten = listen("tauri://update-status", (event) => {
+      // This will log all updater events, including status updates and errors.
+      console.log("event status", event);
+    });
+
+    return () => {
+      unlisten.then((u) => u());
+    };
+  }, []);
+
+  useEffect(() => {
+    const unlisten = listen("tauri://update", (event) => {
+      // This will log all updater events, including status updates and errors.
+      console.log("check event", event);
     });
 
     return () => {
