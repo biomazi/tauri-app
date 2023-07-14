@@ -9,6 +9,7 @@ import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { cartAtoms, purchaseCompletedAtom } from "../state/cart-atoms";
 import { cartContentLengthAtom } from "../state/cart-atoms";
 import { useEffect } from "react";
+import { enqueueSnackbar } from "notistack";
 
 const CartContentPayment = () => {
   const setCartProducts = useSetAtom(cartAtoms);
@@ -18,6 +19,7 @@ const CartContentPayment = () => {
   const isCartEmpty = useAtomValue(cartContentLengthAtom) === 0;
 
   const handlePay = () => {
+    enqueueSnackbar("Payment successful", { variant: "success" });
     setCartProducts([]);
     setIsPurchaseCompleted(true);
   };

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@mui/material";
 import { defaultTheme } from "./config/theme";
 import Tauri from "./Tauri";
 import { useEffect } from "react";
+import { SnackbarProvider } from "notistack";
 
 function App() {
   useEffect(() => {
@@ -13,9 +14,11 @@ function App() {
   }, []);
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Tauri />
-      <CssBaseline />
-      <MainPage />
+      <SnackbarProvider maxSnack={2}>
+        <Tauri />
+        <CssBaseline />
+        <MainPage />
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }
