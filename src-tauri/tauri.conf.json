@@ -50,12 +50,12 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://gist.githubusercontent.com/biomazi/e318b453fd50793d0cd2259c9a2f8007/raw/c2a003d0d622787e49e0693c93e1d9726dbf4d90/tauri-update.json"
+        "https://gist.githubusercontent.com/biomazi/e318b453fd50793d0cd2259c9a2f8007/raw/19004dd68c8de768af666b12f2cd9b8999689843/tauri-update.json"
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE0RUNDNTc1QzJDMUMwNUQKUldSZHdNSENkY1hzcEJqZkJQRWVzcjVTL2xNbmd6MHBuNGR3RGdIbHdPRzU2Q0xSdzZTdkRVREYK",
       "windows": {
-        "installMode": "passive"
+        "installMode": "quiet"
       }
     },
     "windows": [
