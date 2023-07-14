@@ -14,7 +14,7 @@ function App() {
   }, []);
   return (
     <ThemeProvider theme={defaultTheme}>
-      <SnackbarProvider maxSnack={2}>
+      <SnackbarProvider maxSnack={5}>
         <Tauri />
         <CssBaseline />
         <MainPage />

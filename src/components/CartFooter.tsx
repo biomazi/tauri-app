@@ -14,8 +14,8 @@ import { useSnackbar } from "notistack";
 const CartFooter = () => {
   const { enqueueSnackbar } = useSnackbar();
   const handleUpdateEvent = async () => {
-    await emit("tauri://update");
     enqueueSnackbar("Update event emitted", { variant: "info" });
+    await emit("tauri://update");
   };
 
   const handleClick = async () => {
@@ -52,6 +52,7 @@ const CartFooter = () => {
 
   useEffect(() => {
     const unlisten = listen("tauri://update-status", (event) => {
+      enqueueSnackbar("Update status event emitted", { variant: "info" });
       // This will log all updater events, including status updates and errors.
       console.log("event status", event);
     });
@@ -63,6 +64,7 @@ const CartFooter = () => {
 
   useEffect(() => {
     const unlisten = listen("tauri://update", (event) => {
+      enqueueSnackbar("Check event emitted", { variant: "info" });
       // This will log all updater events, including status updates and errors.
       console.log("check event", event);
     });
